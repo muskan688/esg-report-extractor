@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "esg-extractor"
+version = "0.1.0"
+description = "Automated ESG/sustainability report extraction and QA assistant"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "anthropic>=0.40.0",
+    "pymupdf>=1.24.0",
+    "pdfplumber>=0.11.0",
+    "pydantic>=2.6.0",
+    "pandas>=2.1.0",
+    "sentence-transformers>=3.0.0",
+    "chromadb>=0.5.0",
+    "click>=8.1.0",
+    "python-dotenv>=1.0.0",
+    "streamlit>=1.36.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "reportlab>=4.0.0",
+]
+
+[project.scripts]
+esg-extractor = "esg_extractor.cli:cli"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+    "requires_network: needs internet access (e.g. to download an embedding model or call a live LLM API)",
+]
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+

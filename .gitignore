@@ -1,0 +1,25 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+.venv/
+venv/
+env/
+.env
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# generated data / indices - PDFs are large and reproducible via the
+# sample-report generator or by dropping in real reports per the README.
+data/raw/*.pdf
+data/raw/manifest.json
+data/processed/
+data/ground_truth/ground_truth.csv
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+!data/ground_truth/.gitkeep
+
+.DS_Store
+Thumbs.db
+*.log
