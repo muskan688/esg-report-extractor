@@ -19,10 +19,10 @@ as the actual problem to solve, not a footnote — see [Design notes](#design-no
 2. **Locate** — cheap keyword pre-filter narrows a 100-300 page report down
    to the handful of pages that plausibly contain each KPI, instead of
    sending the whole document to an LLM.
-3. **Extract** — an LLM (Claude, via forced tool-use / JSON-schema output)
-   pulls each KPI from its candidate pages with a verbatim source quote,
-   page number, and confidence score attached — never inferred, never
-   filled in from general knowledge.
+3. **Extract** — an LLM (Claude or Gemini, via forced tool/function-calling
+   with a JSON-schema output) pulls each KPI from its candidate pages with a
+   verbatim source quote, page number, and confidence score attached —
+   never inferred, never filled in from general knowledge.
 4. **Normalize** — every value is converted to a canonical unit (t CO2e,
    MWh, m³, %, headcount) so figures are comparable across companies/years.
 5. **Index** — report text is chunked and embedded (local `sentence-transformers`
@@ -40,8 +40,15 @@ python -m venv .venv
 source .venv/bin/activate  # .venv\Scripts\activate on Windows
 pip install -r requirements-dev.txt
 pip install -e .
-cp .env.example .env  # then fill in ANTHROPIC_API_KEY
+cp .env.example .env  # set LLM_PROVIDER + the matching API key
 ```
+
+Two providers are supported out of the box, picked by `LLM_PROVIDER`
+(`anthropic` or `gemini`) — both go through the same
+[`BaseLLMClient`](src/esg_extractor/extraction/base.py) interface, so
+nothing else in the pipeline changes when you switch. Gemini has a free API
+tier (via [Google AI Studio](https://aistudio.google.com/)); Anthropic
+requires a paid key.
 
 No PDFs on hand yet? Generate a small synthetic demo corpus (12 fictional
 companies' reports with realistic mixed units/formatting and a matching
@@ -94,11 +101,11 @@ those specific reports lay out their KPI tables.
 PDF ──▶ pdf_parser (PyMuPDF text + pdfplumber tables)
           │
           ├──▶ extractor.find_candidate_pages (keyword pre-filter)
-          │      └──▶ llm_client.extract_metrics (Claude, forced tool-use)
+          │      └──▶ provider.get_llm_client().extract_metrics (forced tool/function-calling)
           │             └──▶ units.normalize_unit ──▶ ESGReportMetrics (Pydantic)
           │
           └──▶ chunk_report ──▶ embeddings (sentence-transformers)
-                                   └──▶ vectorstore (chromadb) ──▶ rag.qa (Claude)
+                                   └──▶ vectorstore (chromadb) ──▶ rag.qa (same LLM client)
 ```
 
 - [`src/esg_extractor/schema/metrics.py`](src/esg_extractor/schema/metrics.py) — the single source of truth for
@@ -106,8 +113,9 @@ PDF ──▶ pdf_parser (PyMuPDF text + pdfplumber tables)
   schema.
 - [`src/esg_extractor/ingestion/pdf_parser.py`](src/esg_extractor/ingestion/pdf_parser.py) — per-page text/table
   parsing and page-aligned chunking.
-- [`src/esg_extractor/extraction/`](src/esg_extractor/extraction) — candidate-page location, the LLM
-  tool-use call, and unit normalization.
+- [`src/esg_extractor/extraction/`](src/esg_extractor/extraction) — candidate-page location, unit
+  normalization, the shared tool schema/prompts, and the Anthropic/Gemini
+  clients behind `provider.get_llm_client()`.
 - [`src/esg_extractor/rag/`](src/esg_extractor/rag) — embeddings, vector store, retrieval-augmented QA.
 - [`src/esg_extractor/eval/evaluate.py`](src/esg_extractor/eval/evaluate.py) — precision/recall/tolerance scoring
   against hand-labeled ground truth.
@@ -115,10 +123,11 @@ PDF ──▶ pdf_parser (PyMuPDF text + pdfplumber tables)
 
 ## Tech stack
 
-Python · PyMuPDF + pdfplumber (PDF layout) · Anthropic Claude (structured
-extraction via tool-use, RAG answer generation) · Pydantic (schema-validated
-output) · sentence-transformers + chromadb (local embeddings + vector store)
-· pandas (aggregation/eval) · Streamlit (UI) · Docker.
+Python · PyMuPDF + pdfplumber (PDF layout) · Claude or Gemini (structured
+extraction via tool/function-calling, RAG answer generation - swappable via
+`LLM_PROVIDER`) · Pydantic (schema-validated output) · sentence-transformers
++ chromadb (local embeddings + vector store) · pandas (aggregation/eval) ·
+Streamlit (UI) · Docker.
 
 ## Using real reports
 

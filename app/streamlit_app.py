@@ -15,7 +15,8 @@ import streamlit as st
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "src"))
 
 from esg_extractor import config  # noqa: E402
-from esg_extractor.extraction.llm_client import LLMClient  # noqa: E402
+from esg_extractor.extraction.base import BaseLLMClient  # noqa: E402
+from esg_extractor.extraction.provider import get_llm_client  # noqa: E402
 from esg_extractor.pipeline import process_report  # noqa: E402
 from esg_extractor.rag.qa import ReportQA  # noqa: E402
 from esg_extractor.rag.vectorstore import ReportVectorStore  # noqa: E402
@@ -30,8 +31,8 @@ def get_vectorstore() -> ReportVectorStore:
 
 
 @st.cache_resource
-def get_client() -> LLMClient:
-    return LLMClient()
+def get_client() -> BaseLLMClient:
+    return get_llm_client()
 
 
 st.title("ESG / Sustainability Report Extraction Assistant")
@@ -40,10 +41,12 @@ st.caption(
     "(emissions, energy, workforce diversity) and ask free-text questions over it."
 )
 
-if not os.environ.get("ANTHROPIC_API_KEY"):
+_provider = os.environ.get("LLM_PROVIDER", "anthropic").strip().lower()
+_key_var = "GEMINI_API_KEY" if _provider == "gemini" else "ANTHROPIC_API_KEY"
+if not (os.environ.get(_key_var) or (_provider == "gemini" and os.environ.get("GOOGLE_API_KEY"))):
     st.warning(
-        "ANTHROPIC_API_KEY is not set. Extraction and QA calls will fail until you "
-        "set it (see .env.example) and restart the app.",
+        f"LLM_PROVIDER is '{_provider}' but {_key_var} is not set. Extraction and QA calls "
+        "will fail until you set it (see .env.example) and restart the app.",
         icon="⚠️",
     )
 

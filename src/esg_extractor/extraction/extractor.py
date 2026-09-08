@@ -5,7 +5,8 @@ from __future__ import annotations
 import logging
 from typing import Optional
 
-from esg_extractor.extraction.llm_client import LLMClient
+from esg_extractor.extraction.base import BaseLLMClient
+from esg_extractor.extraction.provider import get_llm_client
 from esg_extractor.extraction.units import normalize_unit
 from esg_extractor.ingestion.pdf_parser import ParsedReport
 from esg_extractor.schema.metrics import METRIC_FIELDS, ESGReportMetrics, ExtractedMetric
@@ -50,8 +51,8 @@ def _merge_pages_to_windows(
 
 
 class MetricExtractor:
-    def __init__(self, client: Optional[LLMClient] = None, page_pad: int = 1, page_gap: int = 2):
-        self.client = client or LLMClient()
+    def __init__(self, client: Optional[BaseLLMClient] = None, page_pad: int = 1, page_gap: int = 2):
+        self.client = client or get_llm_client()
         self.page_pad = page_pad
         self.page_gap = page_gap
 

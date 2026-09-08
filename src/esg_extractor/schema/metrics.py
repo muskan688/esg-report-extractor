@@ -52,7 +52,7 @@ METRIC_FIELDS: tuple[MetricDefinition, ...] = (
         "renewable_energy_share_pct",
         "Share of renewable energy in total energy consumption",
         "%",
-        ("renewable energy share", "renewable share"),
+        ("renewable energy share", "renewable share", "renewable energy", "share of renewable"),
     ),
     MetricDefinition(
         "total_workforce_headcount",
@@ -64,7 +64,7 @@ METRIC_FIELDS: tuple[MetricDefinition, ...] = (
         "women_share_total_workforce_pct",
         "Share of women in the total workforce",
         "%",
-        ("women in workforce", "female employees", "gender diversity"),
+        ("women in workforce", "female employees", "gender diversity", "women in total workforce", "share of women"),
     ),
     MetricDefinition(
         "women_share_management_pct",

@@ -5,7 +5,8 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Optional
 
-from esg_extractor.extraction.llm_client import LLMClient
+from esg_extractor.extraction.base import BaseLLMClient
+from esg_extractor.extraction.provider import get_llm_client
 from esg_extractor.rag.vectorstore import ReportVectorStore
 
 
@@ -16,9 +17,9 @@ class QAResult:
 
 
 class ReportQA:
-    def __init__(self, vectorstore: ReportVectorStore, client: Optional[LLMClient] = None, top_k: int = 5):
+    def __init__(self, vectorstore: ReportVectorStore, client: Optional[BaseLLMClient] = None, top_k: int = 5):
         self.vectorstore = vectorstore
-        self.client = client or LLMClient()
+        self.client = client or get_llm_client()
         self.top_k = top_k
 
     def ask(self, question: str, source_file: Optional[str] = None) -> QAResult:
