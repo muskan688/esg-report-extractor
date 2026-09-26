@@ -123,6 +123,8 @@ class ESGReportMetrics(BaseModel):
     report_year: Optional[int] = None
     source_file: str
     metrics: dict[str, ExtractedMetric] = Field(default_factory=dict)
+    total_calls: int = 0
+    failed_calls: int = 0  # LLM calls that failed after retries; a non-zero value means recall is understated
 
     def get(self, key: str) -> ExtractedMetric:
         return self.metrics.get(key, ExtractedMetric())

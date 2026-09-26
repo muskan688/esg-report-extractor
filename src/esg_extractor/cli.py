@@ -44,7 +44,12 @@ def batch(manifest_path, pdf_dir, out_dir):
     with open(manifest_path, encoding="utf-8") as f:
         manifest = json.load(f)
     results = process_corpus(pdf_dir, manifest, out_dir)
+    total = sum(r.total_calls for r in results)
+    failed = sum(r.failed_calls for r in results)
     click.echo(f"Processed {len(results)} reports into {out_dir}")
+    click.echo(f"LLM calls: {total} total, {failed} failed after retries")
+    if failed:
+        click.echo("Some calls failed, so recall is understated. Re-run batch before trusting eval numbers.")
 
 
 @cli.command()

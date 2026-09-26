@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import logging
+import time
 from typing import Optional
 
 from esg_extractor.extraction.base import BaseLLMClient
@@ -51,8 +52,17 @@ def _merge_pages_to_windows(
 
 
 class MetricExtractor:
-    def __init__(self, client: Optional[BaseLLMClient] = None, page_pad: int = 1, page_gap: int = 2):
+    def __init__(
+        self,
+        client: Optional[BaseLLMClient] = None,
+        page_pad: int = 1,
+        page_gap: int = 2,
+        max_retries: int = 4,
+        retry_base_delay: float = 2.0,
+    ):
         self.client = client or get_llm_client()
+        self.max_retries = max_retries
+        self.retry_base_delay = retry_base_delay
         self.page_pad = page_pad
         self.page_gap = page_gap
 
@@ -73,15 +83,26 @@ class MetricExtractor:
                 window_to_keys.setdefault(w, set()).add(key)
 
         found: dict[str, list[ExtractedMetric]] = {m.key: [] for m in METRIC_FIELDS}
+        total_calls = 0
+        failed_calls = 0
 
         for (start, end), keys in window_to_keys.items():
             chunk_text = "\n\n".join(pages_by_num[p].as_markdown() for p in range(start, end + 1) if p in pages_by_num)
             if not chunk_text.strip():
                 continue
-            try:
-                raw_result = self.client.extract_metrics(chunk_text, metric_keys=sorted(keys))
-            except Exception:
-                logger.exception("extraction call failed for pages %s-%s", start, end)
+            total_calls += 1
+            raw_result = None
+            for attempt in range(self.max_retries + 1):
+                try:
+                    raw_result = self.client.extract_metrics(chunk_text, metric_keys=sorted(keys))
+                    break
+                except Exception:
+                    if attempt == self.max_retries:
+                        logger.exception("extraction call failed for pages %s-%s", start, end)
+                    else:
+                        time.sleep(self.retry_base_delay * 2**attempt)
+            if raw_result is None:
+                failed_calls += 1
                 continue
             for key, payload in raw_result.items():
                 metric_def = next((m for m in METRIC_FIELDS if m.key == key), None)
@@ -108,6 +129,8 @@ class MetricExtractor:
             report_year=report_year,
             source_file=report.source_file,
             metrics=metrics,
+            total_calls=total_calls,
+            failed_calls=failed_calls,
         )
 
 
