@@ -23,3 +23,20 @@ jobs:
         run: ruff check src tests scripts app
       - name: Unit tests (no network/API-key required)
         run: pytest tests -m "not requires_network" -v
+
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build image
+        run: docker build -t esg-report-extractor .
+      - name: Start container and check the app responds
+        run: |
+          docker run -d --name esg -p 8501:8501 esg-report-extractor
+          for i in $(seq 1 30); do
+            if curl -fsS http://localhost:8501/_stcore/health; then
+              echo; echo "app healthy after ${i}x2s"; exit 0
+            fi
+            sleep 2
+          done
+          echo "app did not become healthy"; docker logs esg; exit 1

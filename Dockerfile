@@ -10,7 +10,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY pyproject.toml .
+COPY pyproject.toml README.md ./
 COPY src/ src/
 COPY app/ app/
 COPY scripts/ scripts/
