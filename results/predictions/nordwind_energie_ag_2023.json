@@ -1,0 +1,89 @@
+{
+  "company": "Nordwind Energie AG",
+  "report_year": 2023,
+  "source_file": "data\\raw\\nordwind_energie_ag_2023.pdf",
+  "metrics": {
+    "ghg_scope1_tco2e": {
+      "value": 14429.3,
+      "raw_value": 14429.3,
+      "raw_unit": "t CO2e",
+      "source_page": 2,
+      "quote": "| GHG Emissions Scope 1 | 15.611,4 | 14.429,3 | t CO2e |",
+      "confidence": 1.0
+    },
+    "ghg_scope2_tco2e": {
+      "value": 26129.5,
+      "raw_value": 26129.5,
+      "raw_unit": "t CO2e",
+      "source_page": 2,
+      "quote": "| GHG Emissions Scope 2 (market-based) | 22.569,3 | 26.129,5 | t CO2e |",
+      "confidence": 1.0
+    },
+    "ghg_scope3_tco2e": {
+      "value": 1100000.0,
+      "raw_value": 1.1,
+      "raw_unit": "Mio. t CO2e",
+      "source_page": 2,
+      "quote": "| GHG Emissions Scope 3 | 1,2 | 1,1 | Mio. t CO2e |",
+      "confidence": 1.0
+    },
+    "total_energy_consumption_mwh": {
+      "value": 1418600.0,
+      "raw_value": 1418.6,
+      "raw_unit": "GWh",
+      "source_page": 2,
+      "quote": "| Total energy consumption | 1.558,8 | 1.418,6 | GWh |",
+      "confidence": 1.0
+    },
+    "renewable_energy_share_pct": {
+      "value": 62.4,
+      "raw_value": 62.4,
+      "raw_unit": "%",
+      "source_page": 2,
+      "quote": "| Share of renewable energy | 69,0 | 62,4 | % |",
+      "confidence": 1.0
+    },
+    "total_workforce_headcount": {
+      "value": 37200.0,
+      "raw_value": 37.2,
+      "raw_unit": "thousand employees",
+      "source_page": 2,
+      "quote": "| Total workforce | 37,6 | 37,2 | thousand employees |",
+      "confidence": 1.0
+    },
+    "women_share_total_workforce_pct": {
+      "value": 22.4,
+      "raw_value": 22.4,
+      "raw_unit": "%",
+      "source_page": 2,
+      "quote": "| Share of women in total workforce | 24,8 | 22,4 | % |",
+      "confidence": 1.0
+    },
+    "women_share_management_pct": {
+      "value": 26.4,
+      "raw_value": 26.4,
+      "raw_unit": "%",
+      "source_page": 2,
+      "quote": "| Share of women in management | 25,4 | 26,4 | % |",
+      "confidence": 1.0
+    },
+    "water_consumption_m3": {
+      "value": 195600.0,
+      "raw_value": 195.6,
+      "raw_unit": "thousand m3",
+      "source_page": 2,
+      "quote": "| Total water consumption | 200,1 | 195,6 | thousand m3 |",
+      "confidence": 1.0
+    },
+    "waste_total_tonnes": {
+      "value": 58300.0,
+      "raw_value": 58.3,
+      "raw_unit": "kt",
+      "source_page": 2,
+      "quote": "| Total waste generated | 51,0 | 58,3 | kt |",
+      "confidence": 1.0
+    }
+  },
+  "total_calls": 1,
+  "failed_calls": 0
+}

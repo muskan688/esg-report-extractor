@@ -1,0 +1,89 @@
+{
+  "company": "Rheinaue Chemie AG",
+  "report_year": 2023,
+  "source_file": "data\\raw\\rheinaue_chemie_ag_2023.pdf",
+  "metrics": {
+    "ghg_scope1_tco2e": {
+      "value": 15500.0,
+      "raw_value": 15.5,
+      "raw_unit": "kt CO2e",
+      "source_page": 2,
+      "quote": "| GHG Emissions Scope 1 | 14,4 | 15,5 | kt CO2e |",
+      "confidence": 0.99
+    },
+    "ghg_scope2_tco2e": {
+      "value": 18568.0,
+      "raw_value": 18568.0,
+      "raw_unit": "t CO2e",
+      "source_page": 2,
+      "quote": "| GHG Emissions Scope 2 (market-based) | 17.893,9 | 18.568,0 | t CO2e |",
+      "confidence": 0.99
+    },
+    "ghg_scope3_tco2e": {
+      "value": 343345.5,
+      "raw_value": 343345.5,
+      "raw_unit": "t CO2e",
+      "source_page": 2,
+      "quote": "| GHG Emissions Scope 3 | 297.054,5 | 343.345,5 | t CO2e |",
+      "confidence": 0.99
+    },
+    "total_energy_consumption_mwh": {
+      "value": 110000.0,
+      "raw_value": 110.0,
+      "raw_unit": "GWh",
+      "source_page": 2,
+      "quote": "| Total energy consumption | 109,4 | 110,0 | GWh |",
+      "confidence": 0.99
+    },
+    "renewable_energy_share_pct": {
+      "value": null,
+      "raw_value": null,
+      "raw_unit": null,
+      "source_page": null,
+      "quote": null,
+      "confidence": null
+    },
+    "total_workforce_headcount": {
+      "value": 38923.0,
+      "raw_value": 38923.0,
+      "raw_unit": "employees",
+      "source_page": 2,
+      "quote": "| Total workforce | 44.399,4 | 38.923,0 | employees |",
+      "confidence": 0.99
+    },
+    "women_share_total_workforce_pct": {
+      "value": 36.1,
+      "raw_value": 36.1,
+      "raw_unit": "%",
+      "source_page": 2,
+      "quote": "| Share of women in total workforce | 35,5 | 36,1 | % |",
+      "confidence": 0.99
+    },
+    "women_share_management_pct": {
+      "value": 21.6,
+      "raw_value": 21.6,
+      "raw_unit": "%",
+      "source_page": 2,
+      "quote": "| Share of women in management | 21,3 | 21,6 | % |",
+      "confidence": 0.99
+    },
+    "water_consumption_m3": {
+      "value": 498200.0,
+      "raw_value": 498.2,
+      "raw_unit": "thousand m3",
+      "source_page": 2,
+      "quote": "| Total water consumption | 558,4 | 498,2 | thousand m3 |",
+      "confidence": 0.99
+    },
+    "waste_total_tonnes": {
+      "value": 33879.6,
+      "raw_value": 33879.6,
+      "raw_unit": "t",
+      "source_page": 2,
+      "quote": "| Total waste generated | 30.488,0 | 33.879,6 | t |",
+      "confidence": 0.99
+    }
+  },
+  "total_calls": 1,
+  "failed_calls": 0
+}

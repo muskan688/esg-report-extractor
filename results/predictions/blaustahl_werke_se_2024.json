@@ -1,0 +1,89 @@
+{
+  "company": "BlauStahl Werke SE",
+  "report_year": 2024,
+  "source_file": "data\\raw\\blaustahl_werke_se_2024.pdf",
+  "metrics": {
+    "ghg_scope1_tco2e": {
+      "value": 49000.0,
+      "raw_value": 49000.0,
+      "raw_unit": "t CO2e",
+      "source_page": 2,
+      "quote": "GHG Emissions Scope 1 | 45.015,4 | 49.000,0 | t CO2e",
+      "confidence": 0.98
+    },
+    "ghg_scope2_tco2e": {
+      "value": 9953.1,
+      "raw_value": 9953.1,
+      "raw_unit": "t CO2e",
+      "source_page": 2,
+      "quote": "GHG Emissions Scope 2 (market-based) | 8.672,1 | 9.953,1 | t CO2e",
+      "confidence": 0.98
+    },
+    "ghg_scope3_tco2e": {
+      "value": null,
+      "raw_value": null,
+      "raw_unit": null,
+      "source_page": null,
+      "quote": null,
+      "confidence": null
+    },
+    "total_energy_consumption_mwh": {
+      "value": 579133.8,
+      "raw_value": 579133.8,
+      "raw_unit": "MWh",
+      "source_page": 2,
+      "quote": "Total energy consumption | 594.476,6 | 579.133,8 | MWh",
+      "confidence": 0.98
+    },
+    "renewable_energy_share_pct": {
+      "value": 81.3,
+      "raw_value": 81.3,
+      "raw_unit": "%",
+      "source_page": 2,
+      "quote": "Share of renewable energy | 90,1 | 81,3 | %",
+      "confidence": 0.98
+    },
+    "total_workforce_headcount": {
+      "value": 7100.0,
+      "raw_value": 7.1,
+      "raw_unit": "thousand employees",
+      "source_page": 2,
+      "quote": "Total workforce | 6,3 | 7,1 | thousand employees",
+      "confidence": 0.98
+    },
+    "women_share_total_workforce_pct": {
+      "value": null,
+      "raw_value": null,
+      "raw_unit": null,
+      "source_page": null,
+      "quote": null,
+      "confidence": null
+    },
+    "women_share_management_pct": {
+      "value": null,
+      "raw_value": null,
+      "raw_unit": null,
+      "source_page": null,
+      "quote": null,
+      "confidence": null
+    },
+    "water_consumption_m3": {
+      "value": 1067693.9,
+      "raw_value": 1067693.9,
+      "raw_unit": "m3",
+      "source_page": 2,
+      "quote": "Total water consumption | 1.096.022,0 | 1.067.693,9 | m3",
+      "confidence": 0.98
+    },
+    "waste_total_tonnes": {
+      "value": 47170.5,
+      "raw_value": 47170.5,
+      "raw_unit": "t",
+      "source_page": 2,
+      "quote": "Total waste generated | 41.000,9 | 47.170,5 | t",
+      "confidence": 0.98
+    }
+  },
+  "total_calls": 1,
+  "failed_calls": 0
+}

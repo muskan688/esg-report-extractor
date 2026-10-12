@@ -1,0 +1,89 @@
+{
+  "company": "Ostsee Maschinenbau AG",
+  "report_year": 2024,
+  "source_file": "data\\raw\\ostsee_maschinenbau_ag_2024.pdf",
+  "metrics": {
+    "ghg_scope1_tco2e": {
+      "value": 59200.0,
+      "raw_value": 59.2,
+      "raw_unit": "kt CO2e",
+      "source_page": 2,
+      "quote": "GHG Emissions Scope 1 66,7 59,2 kt CO2e",
+      "confidence": 0.95
+    },
+    "ghg_scope2_tco2e": {
+      "value": null,
+      "raw_value": null,
+      "raw_unit": null,
+      "source_page": null,
+      "quote": null,
+      "confidence": null
+    },
+    "ghg_scope3_tco2e": {
+      "value": 3800000.0,
+      "raw_value": 3.8,
+      "raw_unit": "Mio. t CO2e",
+      "source_page": 2,
+      "quote": "GHG Emissions Scope 3 3,8 3,8 Mio. t CO2e",
+      "confidence": 0.95
+    },
+    "total_energy_consumption_mwh": {
+      "value": null,
+      "raw_value": null,
+      "raw_unit": null,
+      "source_page": null,
+      "quote": null,
+      "confidence": null
+    },
+    "renewable_energy_share_pct": {
+      "value": 43.5,
+      "raw_value": 43.5,
+      "raw_unit": "%",
+      "source_page": 2,
+      "quote": "Share of renewable energy 48,8 43,5 %",
+      "confidence": 0.95
+    },
+    "total_workforce_headcount": {
+      "value": 37100.0,
+      "raw_value": 37.1,
+      "raw_unit": "thousand employees",
+      "source_page": 2,
+      "quote": "Total workforce 35,2 37,1 thousand employees",
+      "confidence": 0.95
+    },
+    "women_share_total_workforce_pct": {
+      "value": null,
+      "raw_value": null,
+      "raw_unit": null,
+      "source_page": null,
+      "quote": null,
+      "confidence": null
+    },
+    "women_share_management_pct": {
+      "value": 16.7,
+      "raw_value": 16.7,
+      "raw_unit": "%",
+      "source_page": 2,
+      "quote": "Share of women in management 15,3 16,7 %",
+      "confidence": 0.95
+    },
+    "water_consumption_m3": {
+      "value": 3334300.0,
+      "raw_value": 3334.3,
+      "raw_unit": "thousand m3",
+      "source_page": 2,
+      "quote": "Total water consumption 3.558,5 3.334,3 thousand m3",
+      "confidence": 0.95
+    },
+    "waste_total_tonnes": {
+      "value": null,
+      "raw_value": null,
+      "raw_unit": null,
+      "source_page": null,
+      "quote": null,
+      "confidence": null
+    }
+  },
+  "total_calls": 1,
+  "failed_calls": 0
+}

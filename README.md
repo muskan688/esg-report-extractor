@@ -55,7 +55,8 @@ hallucination. The reports and their ground truth both come from
   "0,9 Mio. t CO2e" correctly; the report rounds to one decimal in millions, so it is 4%
   from the underlying 939,745 t.
 
-Per-field scores: [`results/eval_scores.csv`](results/eval_scores.csv). Ground truth:
+Per-field scores: [`results/eval_scores.csv`](results/eval_scores.csv). Raw extractions:
+[`results/predictions/`](results/predictions). Ground truth:
 [`data/ground_truth/ground_truth.csv`](data/ground_truth/ground_truth.csv).
 Because the corpus is synthetic and clean, expect lower recall on real, messier reports.
 To reproduce: `python scripts/generate_sample_reports.py`, then

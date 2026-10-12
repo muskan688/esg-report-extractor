@@ -1,0 +1,89 @@
+{
+  "company": "Ostsee Maschinenbau AG",
+  "report_year": 2023,
+  "source_file": "data\\raw\\ostsee_maschinenbau_ag_2023.pdf",
+  "metrics": {
+    "ghg_scope1_tco2e": {
+      "value": 189314.9,
+      "raw_value": 189314.9,
+      "raw_unit": "t CO2e",
+      "source_page": 2,
+      "quote": "GHG Emissions Scope 1 | 168.776,5 | 189.314,9 | t CO2e",
+      "confidence": 0.95
+    },
+    "ghg_scope2_tco2e": {
+      "value": 83700.0,
+      "raw_value": 83.7,
+      "raw_unit": "kt CO2e",
+      "source_page": 2,
+      "quote": "GHG Emissions Scope 2 (market-based) | 79,2 | 83,7 | kt CO2e",
+      "confidence": 0.95
+    },
+    "ghg_scope3_tco2e": {
+      "value": null,
+      "raw_value": null,
+      "raw_unit": null,
+      "source_page": null,
+      "quote": null,
+      "confidence": null
+    },
+    "total_energy_consumption_mwh": {
+      "value": 1944600.0,
+      "raw_value": 1944.6,
+      "raw_unit": "GWh",
+      "source_page": 2,
+      "quote": "Total energy consumption | 1.909,5 | 1.944,6 | GWh",
+      "confidence": 0.95
+    },
+    "renewable_energy_share_pct": {
+      "value": null,
+      "raw_value": null,
+      "raw_unit": null,
+      "source_page": null,
+      "quote": null,
+      "confidence": null
+    },
+    "total_workforce_headcount": {
+      "value": null,
+      "raw_value": null,
+      "raw_unit": null,
+      "source_page": null,
+      "quote": null,
+      "confidence": null
+    },
+    "women_share_total_workforce_pct": {
+      "value": 21.4,
+      "raw_value": 21.4,
+      "raw_unit": "%",
+      "source_page": 2,
+      "quote": "Share of women in total workforce | 23,1 | 21,4 | %",
+      "confidence": 0.95
+    },
+    "women_share_management_pct": {
+      "value": 21.7,
+      "raw_value": 21.7,
+      "raw_unit": "%",
+      "source_page": 2,
+      "quote": "Share of women in management | 23,9 | 21,7 | %",
+      "confidence": 0.95
+    },
+    "water_consumption_m3": {
+      "value": 3393600.0,
+      "raw_value": 3393.6,
+      "raw_unit": "thousand m3",
+      "source_page": 2,
+      "quote": "Total water consumption | 3.123,3 | 3.393,6 | thousand m3",
+      "confidence": 0.95
+    },
+    "waste_total_tonnes": {
+      "value": 148100.0,
+      "raw_value": 148.1,
+      "raw_unit": "kt",
+      "source_page": 2,
+      "quote": "Total waste generated | 153,7 | 148,1 | kt",
+      "confidence": 0.95
+    }
+  },
+  "total_calls": 1,
+  "failed_calls": 0
+}

@@ -1,0 +1,89 @@
+{
+  "company": "Alpen Mobilitaet AG",
+  "report_year": 2023,
+  "source_file": "data\\raw\\alpen_mobilitaet_ag_2023.pdf",
+  "metrics": {
+    "ghg_scope1_tco2e": {
+      "value": 24052.5,
+      "raw_value": 24052.5,
+      "raw_unit": "t CO2e",
+      "source_page": 2,
+      "quote": "GHG Emissions Scope 1 25.638,2 24.052,5 t CO2e",
+      "confidence": 1.0
+    },
+    "ghg_scope2_tco2e": {
+      "value": 5700.0,
+      "raw_value": 5.7,
+      "raw_unit": "kt CO2e",
+      "source_page": 2,
+      "quote": "GHG Emissions Scope 2 (market-based) 5,9 5,7 kt CO2e",
+      "confidence": 1.0
+    },
+    "ghg_scope3_tco2e": {
+      "value": 1101152.2,
+      "raw_value": 1101152.2,
+      "raw_unit": "t CO2e",
+      "source_page": 2,
+      "quote": "GHG Emissions Scope 3 1.020.125,9 1.101.152,2 t CO2e",
+      "confidence": 1.0
+    },
+    "total_energy_consumption_mwh": {
+      "value": 207218.7,
+      "raw_value": 207218.7,
+      "raw_unit": "MWh",
+      "source_page": 2,
+      "quote": "Total energy consumption 235.123,3 207.218,7 MWh",
+      "confidence": 1.0
+    },
+    "renewable_energy_share_pct": {
+      "value": 72.4,
+      "raw_value": 72.4,
+      "raw_unit": "%",
+      "source_page": 2,
+      "quote": "Share of renewable energy 72,6 72,4 %",
+      "confidence": 1.0
+    },
+    "total_workforce_headcount": {
+      "value": 16400.0,
+      "raw_value": 16.4,
+      "raw_unit": "thousand employees",
+      "source_page": 2,
+      "quote": "Total workforce 14,0 16,4 thousand employees",
+      "confidence": 1.0
+    },
+    "women_share_total_workforce_pct": {
+      "value": 26.2,
+      "raw_value": 26.2,
+      "raw_unit": "%",
+      "source_page": 2,
+      "quote": "Share of women in total workforce 25,3 26,2 %",
+      "confidence": 1.0
+    },
+    "women_share_management_pct": {
+      "value": 32.8,
+      "raw_value": 32.8,
+      "raw_unit": "%",
+      "source_page": 2,
+      "quote": "Share of women in management 33,9 32,8 %",
+      "confidence": 1.0
+    },
+    "water_consumption_m3": {
+      "value": null,
+      "raw_value": null,
+      "raw_unit": null,
+      "source_page": null,
+      "quote": null,
+      "confidence": null
+    },
+    "waste_total_tonnes": {
+      "value": 20813.9,
+      "raw_value": 20813.9,
+      "raw_unit": "t",
+      "source_page": 2,
+      "quote": "Total waste generated 19.966,1 20.813,9 t",
+      "confidence": 1.0
+    }
+  },
+  "total_calls": 1,
+  "failed_calls": 0
+}

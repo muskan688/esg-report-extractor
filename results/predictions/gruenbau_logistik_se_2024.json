@@ -1,0 +1,89 @@
+{
+  "company": "Gruenbau Logistik SE",
+  "report_year": 2024,
+  "source_file": "data\\raw\\gruenbau_logistik_se_2024.pdf",
+  "metrics": {
+    "ghg_scope1_tco2e": {
+      "value": 50597.1,
+      "raw_value": 50597.1,
+      "raw_unit": "t CO2e",
+      "source_page": 2,
+      "quote": "GHG Emissions Scope 1 | 47.057,4 | 50.597,1 | t CO2e",
+      "confidence": 0.98
+    },
+    "ghg_scope2_tco2e": {
+      "value": 61900.0,
+      "raw_value": 61.9,
+      "raw_unit": "kt CO2e",
+      "source_page": 2,
+      "quote": "GHG Emissions Scope 2 (market-based) | 67,5 | 61,9 | kt CO2e",
+      "confidence": 0.98
+    },
+    "ghg_scope3_tco2e": {
+      "value": 2357122.9,
+      "raw_value": 2357122.9,
+      "raw_unit": "t CO2e",
+      "source_page": 2,
+      "quote": "GHG Emissions Scope 3 | 2.614.949,0 | 2.357.122,9 | t CO2e",
+      "confidence": 0.98
+    },
+    "total_energy_consumption_mwh": {
+      "value": 848942.9,
+      "raw_value": 848942.9,
+      "raw_unit": "MWh",
+      "source_page": 2,
+      "quote": "Total energy consumption | 767.281,6 | 848.942,9 | MWh",
+      "confidence": 0.98
+    },
+    "renewable_energy_share_pct": {
+      "value": 15.7,
+      "raw_value": 15.7,
+      "raw_unit": "%",
+      "source_page": 2,
+      "quote": "Share of renewable energy | 15,1 | 15,7 | %",
+      "confidence": 0.98
+    },
+    "total_workforce_headcount": {
+      "value": null,
+      "raw_value": null,
+      "raw_unit": null,
+      "source_page": null,
+      "quote": null,
+      "confidence": null
+    },
+    "women_share_total_workforce_pct": {
+      "value": null,
+      "raw_value": null,
+      "raw_unit": null,
+      "source_page": null,
+      "quote": null,
+      "confidence": null
+    },
+    "women_share_management_pct": {
+      "value": 33.7,
+      "raw_value": 33.7,
+      "raw_unit": "%",
+      "source_page": 2,
+      "quote": "Share of women in management | 38,0 | 33,7 | %",
+      "confidence": 0.98
+    },
+    "water_consumption_m3": {
+      "value": 546300.0,
+      "raw_value": 546.3,
+      "raw_unit": "thousand m3",
+      "source_page": 2,
+      "quote": "Total water consumption | 592,6 | 546,3 | thousand m3",
+      "confidence": 0.98
+    },
+    "waste_total_tonnes": {
+      "value": 12833.3,
+      "raw_value": 12833.3,
+      "raw_unit": "t",
+      "source_page": 2,
+      "quote": "Total waste generated | 14.301,8 | 12.833,3 | t",
+      "confidence": 0.98
+    }
+  },
+  "total_calls": 1,
+  "failed_calls": 0
+}
