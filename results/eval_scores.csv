@@ -1,0 +1,11 @@
+field,support,precision,recall,f1,true_positive,wrong_value,false_negative,false_positive
+ghg_scope1_tco2e,12,1.0,1.0,1.0,12,0,0,0
+ghg_scope2_tco2e,10,1.0,1.0,1.0,10,0,0,0
+ghg_scope3_tco2e,10,0.9,0.9,0.9,9,1,0,0
+total_energy_consumption_mwh,10,1.0,1.0,1.0,10,0,0,0
+renewable_energy_share_pct,9,1.0,1.0,1.0,9,0,0,0
+total_workforce_headcount,9,1.0,1.0,1.0,9,0,0,0
+women_share_total_workforce_pct,8,1.0,1.0,1.0,8,0,0,0
+women_share_management_pct,11,1.0,1.0,1.0,11,0,0,0
+water_consumption_m3,11,1.0,1.0,1.0,11,0,0,0
+waste_total_tonnes,10,1.0,1.0,1.0,10,0,0,0

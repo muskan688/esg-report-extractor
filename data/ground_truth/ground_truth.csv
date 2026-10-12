@@ -1,0 +1,13 @@
+source_file,company,report_year,ghg_scope1_tco2e,ghg_scope2_tco2e,ghg_scope3_tco2e,total_energy_consumption_mwh,renewable_energy_share_pct,total_workforce_headcount,women_share_total_workforce_pct,women_share_management_pct,water_consumption_m3,waste_total_tonnes
+nordwind_energie_ag_2023.pdf,Nordwind Energie AG,2023,14429.34,26129.5,1099859.81,1418632.41,62.37,37241,22.43,26.39,195598.97,58338.65
+nordwind_energie_ag_2024.pdf,Nordwind Energie AG,2024,146870.89,34510.51,2017729.3,1592799.47,26.39,,25.87,22.21,2955095.34,164670.72
+blaustahl_werke_se_2023.pdf,BlauStahl Werke SE,2023,6206.35,,939744.66,526013.28,,5663,30.77,31.09,529944.1,23030.47
+blaustahl_werke_se_2024.pdf,BlauStahl Werke SE,2024,48999.99,9953.13,,579133.85,81.29,7113,,,1067693.92,47170.47
+rheinaue_chemie_ag_2023.pdf,Rheinaue Chemie AG,2023,15472.96,18568.05,343345.5,110012.15,,38923,36.13,21.56,498249.39,33879.57
+rheinaue_chemie_ag_2024.pdf,Rheinaue Chemie AG,2024,43205.33,13062.31,611944.1,584862.27,84.68,37922,,28.14,220309.89,18749.22
+gruenbau_logistik_se_2023.pdf,Gruenbau Logistik SE,2023,96947.14,11905.35,2302336.28,,24.27,24372,44.66,38.74,1202617.04,
+gruenbau_logistik_se_2024.pdf,Gruenbau Logistik SE,2024,50597.05,61929.32,2357122.86,848942.93,15.68,,,33.66,546335.14,12833.32
+alpen_mobilitaet_ag_2023.pdf,Alpen Mobilitaet AG,2023,24052.55,5719.7,1101152.23,207218.73,72.44,16415,26.24,32.82,,20813.9
+alpen_mobilitaet_ag_2024.pdf,Alpen Mobilitaet AG,2024,32834.76,8591.07,850274.98,311088.37,28.43,26347,38.96,39.38,562492.84,22387.64
+ostsee_maschinenbau_ag_2023.pdf,Ostsee Maschinenbau AG,2023,189314.86,83721.72,,1944565.33,,,21.41,21.73,3393642.32,148097.14
+ostsee_maschinenbau_ag_2024.pdf,Ostsee Maschinenbau AG,2024,59237.83,,3823408.83,,43.53,37060,,16.68,3334269.56,

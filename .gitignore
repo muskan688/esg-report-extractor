@@ -15,7 +15,6 @@ env/
 data/raw/*.pdf
 data/raw/manifest.json
 data/processed/
-data/ground_truth/ground_truth.csv
 !data/raw/.gitkeep
 !data/processed/.gitkeep
 !data/ground_truth/.gitkeep

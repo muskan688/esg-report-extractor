@@ -11,7 +11,7 @@ Sustainability reports are genuinely messy documents: mixed narrative text,
 charts-as-images, KPI tables with inconsistent layouts, and units that vary
 company-to-company (`t CO2e` vs `kt CO2e`, `MWh` vs `GWh`, German
 `1.234,5`-style decimal formatting vs `1,234.5`). This project treats that
-as the actual problem to solve, not a footnote — see [Design notes](#design-notes).
+as the actual problem to solve, not a footnote.
 
 ## What it does
 
@@ -29,13 +29,37 @@ as the actual problem to solve, not a footnote — see [Design notes](#design-no
    model, no extra API dependency) into a `chromadb` vector store.
 6. **Ask** — a RAG layer answers free-text questions ("What's driving the
    Scope 3 increase?") grounded in retrieved excerpts, with page citations.
-7. **Evaluate** — extracted values are scored against a hand-labeled ground
-   truth set: precision/recall on *presence* (did it find a number without
-   hallucinating one) and accuracy *within tolerance* on values found.
+7. **Evaluate** — extracted values are scored against a ground truth set
+   (for the bundled demo corpus: synthetic reports with known values; for real
+   reports: hand-labeled): precision/recall on *presence* (did it find a number
+   without hallucinating one) and accuracy *within tolerance* on values found.
 
+## Results (synthetic benchmark)
 
+Evaluated on **12 generated reports** (6 fictional companies × 2 years) with
+**known ground truth**: 10 KPIs per report = 120 metric cells, of which **100 are
+disclosed** in the PDF and **20 are deliberately left out** to test for
+hallucination. The reports and their ground truth both come from
+[`scripts/generate_sample_reports.py`](scripts/generate_sample_reports.py)
+(fixed seed), so this is a benchmark of the pipeline, not of real company reports.
 
-...
+- **Model:** Gemini (`gemini-3.6-flash`). The Claude provider is implemented but was not
+  run for these numbers.
+- **Run:** 2026-09-26, 12 LLM calls, 0 failed after retries (so no API outage is
+  counted as a miss).
+- **Precision: 0.99** (99 of 100 extracted values correct within 2%)
+- **Recall: 0.99** (99 of 100 disclosed values found)
+- **F1: 0.99**
+- **Hallucinated values: 0** (none of the 20 undisclosed cells was filled in)
+- **Wrong values: 1** — Blaustahl Werke 2023 Scope 3. The model read the printed
+  "0,9 Mio. t CO2e" correctly; the report rounds to one decimal in millions, so it is 4%
+  from the underlying 939,745 t.
+
+Per-field scores: [`results/eval_scores.csv`](results/eval_scores.csv). Ground truth:
+[`data/ground_truth/ground_truth.csv`](data/ground_truth/ground_truth.csv).
+Because the corpus is synthetic and clean, expect lower recall on real, messier reports.
+To reproduce: `python scripts/generate_sample_reports.py`, then
+`python -m esg_extractor.cli batch` and `python -m esg_extractor.cli eval` (needs a Gemini API key).
 
 ## License
 
