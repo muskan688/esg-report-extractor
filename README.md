@@ -143,6 +143,48 @@ extraction via tool/function-calling, RAG answer generation - swappable via
 + chromadb (local embeddings + vector store) · pandas (aggregation/eval) ·
 Streamlit (UI) · Docker.
 
+## Design notes
+
+- **Candidate-page pre-filtering exists because reports are long.** A
+  100-300 page PDF sent whole to an LLM per KPI is slow and expensive; a
+  cheap alias keyword scan narrows each KPI down to a few candidate pages
+  first (see `extractor.find_candidate_pages`).
+- **Every extracted value carries a verbatim quote, page number, and
+  confidence** — extraction without provenance isn't auditable, and ESG
+  figures feeding compliance decisions need to be checkable against source.
+- **The LLM is explicitly told not to infer or estimate** — a missing KPI
+  should come back absent, not filled in with a plausible-looking number.
+  The eval harness's `false_positive` count is what would catch a
+  regression here.
+- **Unit normalization is a data-cleaning problem, not a modeling one** —
+  `extraction/units.py` handles magnitude prefixes (kt/Mt/million/thousand),
+  unit families (mass/energy/volume/percent/count), and German vs.
+  English decimal formatting, independently of the LLM call.
+- **Failed API calls are retried and counted.** Extraction retries with
+  exponential backoff, and each report records `total_calls`/`failed_calls`,
+  so a provider outage shows up as understated recall instead of being
+  mistaken for a model error.
+
+## Limitations
+
+- Charts-as-images (a common way KPIs are visualized) aren't read — only
+  text and ruled tables. A vision-capable extraction pass over page images
+  would be the natural extension.
+- Extraction quality depends on how consistently a given report labels its
+  KPI tables; heavily narrative or infographic-only disclosures will have
+  lower recall than a report with an explicit "ESG Facts & Figures" table.
+- Scope 2 is not split into location-based vs. market-based; if a report
+  discloses both, whichever the model judges "market-based" (or the only
+  one given) is taken.
+- The candidate-page pre-filter matches keyword aliases, so it is sensitive to
+  phrasing. Two KPIs were silently missed during development because the report
+  said "share of renewable energy" and the alias list said "renewable energy
+  share". Unusual labels in real reports can be missed the same way.
+- The benchmark is synthetic (generated reports, generated ground truth), so
+  the 0.99 scores validate the pipeline, not performance on real reports.
+- The numbers come from a single run with Gemini. The Anthropic provider is
+  implemented but has not been run against a live API.
+
 ## License
 
 MIT — see [LICENSE](LICENSE).
